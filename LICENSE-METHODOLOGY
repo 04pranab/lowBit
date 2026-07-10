@@ -1,0 +1,50 @@
+# LowBIt Methodology License v1.0
+
+Copyright (c) 2026 Om Pranab Mohanty.
+
+This license covers the **methodology** — the determinism, portability,
+diversity, validation, longevity, analysis, and user-ownership principles
+described in [methodology/](methodology/), and the compliance-checklist
+shape they imply in [SPECIFICATION.md](SPECIFICATION.md).
+
+It does **not** cover the LowBIt name, this site's specific copy and
+design, or any individual benchmark package. Individual packages listed in
+[BENCHMARKS.md](BENCHMARKS.md) carry their own licenses, which may be
+significantly more restrictive than this one — check each package's own
+`LICENSE` before reuse.
+
+## Permitted use
+
+You may use, copy, modify, adapt, and distribute this methodology,
+including as the basis for your own benchmark suite, for any purpose,
+including commercial use, **provided that**:
+
+1. You retain a visible attribution to LowBIt and Om Pranab Mohanty in any
+   documentation, README, or published description of the adapted
+   methodology; and
+2. If you publish results obtained using a suite built on this
+   methodology, you cite the LowBIt methodology as the source of the
+   determinism/portability/validation discipline applied, alongside
+   whatever suite-specific citation you also require.
+
+Substantial verbatim reuse of this document's text should retain this
+license file or an equivalent attribution notice. Adapting the
+*principles* into your own words and your own suite's voice does not
+require reproducing this text — only the attribution above.
+
+## Not required
+
+You do not need permission to apply these principles informally (e.g.
+"we followed a SPEC-CPU-style determinism discipline") without adapting
+the full checklist structure — that kind of general influence isn't what
+this license governs.
+
+## Disclaimer
+
+THIS METHODOLOGY IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED. IT IS AN INDEPENDENT WORK, SYNTHESIZED FROM PUBLICLY
+AVAILABLE LITERATURE AND ESTABLISHED BENCHMARK-ENGINEERING PRACTICE, AND
+IS NOT AFFILIATED WITH, ENDORSED BY, OR DERIVED FROM ANY OFFICIAL SPEC
+CPU®, SPEC, ICICLE, OR OTHER BENCHMARK ORGANIZATION'S PROPRIETARY
+MATERIALS. USE OF THIS METHODOLOGY DOES NOT IMPLY ANY AFFILIATION WITH OR
+ENDORSEMENT BY THOSE ORGANIZATIONS.

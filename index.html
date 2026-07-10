@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LowBIt — a specification-first suite of deterministic, portable systems and ML benchmarks. Founded by Om Pranab Mohanty.">
+  <title>lowBit — Benchmark Suite Specification &amp; Registry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#top" class="nav-logo">lowBit<span class="cursor">_</span></a>
+      <div class="nav-links">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#specification" class="nav-link">Specification</a>
+        <a href="#methodology" class="nav-link">Methodology</a>
+        <a href="#registry" class="nav-link">Registry</a>
+        <a href="#license" class="nav-link">License</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <!-- Hero -->
+    <section id="top" class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">LowBIt Benchmark Suite</p>
+          <h1 class="hero-title">Small pieces.<br>Deterministic&nbsp;systems.</h1>
+          <p class="hero-lede">A specification-first suite of small, self-contained benchmarks for systems, machine learning, and computer architecture research — each one deterministic, portable, and independently reproducible.</p>
+          <p class="hero-note">This repository holds no benchmark source code. It explains what LowBIt is, defines the specification every benchmark must meet, and links to every one — a map, not a showcase.</p>
+          <div class="hero-cta">
+            <a href="#registry" class="btn btn-primary">View registry</a>
+            <a href="#specification" class="btn btn-ghost">Read specification</a>
+          </div>
+        </div>
+
+        <div class="hero-card spec-card" aria-hidden="true">
+          <div class="spec-card-bar">
+            <span class="spec-card-id">LB-ML-001</span>
+            <span class="pill pill-verified">Implemented</span>
+          </div>
+          <pre class="spec-card-body"><span class="k">Kernel</span>        Transformer Attention
+<span class="k">Domain</span>        Machine Learning
+<span class="k">Category</span>      Dense Linear Algebra
+<span class="k">Operations</span>    QK^T, Softmax, Attn, Proj
+<span class="k">Language</span>      C++17
+<span class="k">Deterministic</span> Yes
+<span class="k">Validated</span>     Yes
+<span class="k">Architectures</span> x86-64, RISC-V
+<span class="k">Difficulty</span>    Medium</pre>
+          <div class="spec-card-foot">reference/ref.golden.x86_64.json</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="section-header">
+        <p class="eyebrow eyebrow-sm">01 — Overview</p>
+        <h2>What LowBIt is</h2>
+      </div>
+      <div class="overview-grid">
+        <div class="overview-copy">
+          <p>LowBIt is not a single project, and this site is not its product. It's a personal benchmarking initiative — an aggregation of independently maintained benchmark packages that share one specification, one methodology, and one registry.</p>
+          <p>Each benchmark is intentionally small: a single kernel, a fixed set of workloads, a golden reference output. Nothing here is a framework you install — every package is a standalone repository you can clone, build, and validate on its own.</p>
+          <p>This repository is the index. It hosts no benchmark source code, only the rules a benchmark must follow to join the suite, and the growing list of benchmarks that do.</p>
+        </div>
+        <div class="tree-card">
+          <div class="tree-card-bar">lowBit/</div>
+          <pre class="tree-body">LowBIt/
+│
+├── README.md
+├── LICENSE
+├── LICENSE-METHODOLOGY
+├── CITATION.cff
+├── BENCHMARKS.md
+├── ROADMAP.md
+├── SPECIFICATION.md
+├── docs/
+└── methodology/
+
+<span class="tree-note"># no benchmark source lives here —
+# only the map, and the rules.</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section id="philosophy" class="section">
+      <div class="section-header">
+        <p class="eyebrow eyebrow-sm">02 — Philosophy</p>
+        <h2>Why it's built this way</h2>
+      </div>
+      <ul class="principles-list">
+        <li><span class="principle-mark">▸</span><div><strong>Build small, composable pieces.</strong><p>Every benchmark does one thing — one kernel, one measurement — well.</p></div></li>
+        <li><span class="principle-mark">▸</span><div><strong>Prefer clarity over completeness.</strong><p>A readable, honest harness beats a clever one nobody can audit.</p></div></li>
+        <li><span class="principle-mark">▸</span><div><strong>Learn by implementation.</strong><p>Theory is checked against a build that either runs deterministically or doesn't.</p></div></li>
+        <li><span class="principle-mark">▸</span><div><strong>Allow unfinished and experimental work.</strong><p>Some entries in the registry are planned, not shipped. That's shown, not hidden.</p></div></li>
+        <li><span class="principle-mark">▸</span><div><strong>Optimize for understanding, not speed.</strong><p>A number without a reproducible method behind it isn't a result.</p></div></li>
+      </ul>
+    </section>
+
+    <!-- Specification -->
+    <section id="specification" class="section">
+      <div class="section-header">
+        <p class="eyebrow eyebrow-sm">03 — Specification</p>
+        <h2>What every benchmark ships</h2>
+      </div>
+      <p class="section-lede">To be admitted to the registry, a benchmark package follows the same shape, regardless of what it measures. This keeps every entry buildable, checkable, and comparable without reading its source first.</p>
+
+      <div class="spec-table" role="table">
+        <div class="spec-row spec-row-head" role="row">
+          <span role="columnheader">Path</span>
+          <span role="columnheader">Purpose</span>
+        </div>
+        <div class="spec-row" role="row"><span class="mono">README.md</span><span>Benchmark card — ID, kernel, domain, operations, validated architectures.</span></div>
+        <div class="spec-row" role="row"><span class="mono">benchmark.json</span><span>Machine-readable descriptor: workloads, build targets, validation rules.</span></div>
+        <div class="spec-row" role="row"><span class="mono">metadata.yaml</span><span>Provenance and a principle-by-principle methodology compliance checklist.</span></div>
+        <div class="spec-row" role="row"><span class="mono">input/</span><span>Declarative workload recipes (JSON) — parameters, not pre-baked data.</span></div>
+        <div class="spec-row" role="row"><span class="mono">reference/</span><span>Golden reference outputs, checksummed per architecture.</span></div>
+        <div class="spec-row" role="row"><span class="mono">scripts/</span><span>Build, run, validate, and reference-regeneration entry points.</span></div>
+        <div class="spec-row" role="row"><span class="mono">docs/</span><span>Design rationale — why this kernel, what was measured, what wasn't.</span></div>
+        <div class="spec-row" role="row"><span class="mono">LICENSE</span><span>Ownership terms for that package specifically.</span></div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block-bar">benchmark.json — required fields</div>
+        <pre>{
+  "suite": "LowBIt",
+  "id": "LB-&lt;DOMAIN&gt;-&lt;NNN&gt;",
+  "name": "package-directory-name",
+  "kernel": { "type": "...", "operations": [ "..." ] },
+  "workloads": [ { "name": "...", "recipe": "input/....json" } ],
+  "validation": { "determinism": "...", "accuracy_gate": "..." },
+  "metrics_reported": [ "mean_ms", "GFLOP/s", "fnv1a_checksum" ],
+  "owner": "..."
+}</pre>
+      </div>
+      <p class="section-footnote">Full field-by-field rules live in <a href="SPECIFICATION.md">SPECIFICATION.md</a>.</p>
+    </section>
+
+    <!-- Methodology -->
+    <section id="methodology" class="section">
+      <div class="section-header">
+        <p class="eyebrow eyebrow-sm">04 — Methodology</p>
+        <h2>What "validated" means here</h2>
+      </div>
+      <p class="section-lede">The discipline follows SPEC CPU®'s determinism/portability/validation tradition, with an Icicle-inspired top-down approach to microarchitectural analysis where hardware performance counters are actually available. Every benchmark self-reports against the same seven principles:</p>
+
+      <div class="methodology-grid">
+        <div class="method-card spec-card">
+          <div class="spec-card-bar"><span class="spec-card-id">Determinism</span><span class="pill pill-verified">verified</span></div>
+          <p>Fixed-seed RNG, fixed reduction order, no unordered containers. Repeat runs are bit-identical.</p>
+        </div>
+        <div class="method-card spec-card">
+          <div class="spec-card-bar"><span class="spec-card-id">Portability</span><span class="pill pill-verified">verified</span></div>
+          <p>ISO-standard language only. No required intrinsics or inline assembly. Builds unmodified across target architectures.</p>
+        </div>
+        <div class="method-card spec-card">
+          <div class="spec-card-bar"><span class="spec-card-id">Diversity</span><span class="pill pill-partial">partial</span></div>
+          <p>Coverage grows kernel by kernel. Gaps are flagged in each package's <span class="mono">metadata.yaml</span>, never left silent.</p>
+        </div>
+        <div class="method-card spec-card">
+          <div class="spec-card-bar"><span class="spec-card-id">Validation</span><span class="pill pill-verified">verified</span></div>
+          <p>Golden-checksum references per architecture, regenerable, checked by a self-contained <span class="mono">--validate</span> mode.</p>
+        </div>
+        <div class="method-card spec-card">
+          <div class="spec-card-bar"><span class="spec-card-id">Longevity</span><span class="pill pill-verified">verified</span></div>
+          <p>Minimal, stable dependencies. A benchmark should still build in five years without an archaeology project.</p>
+        </div>
+        <div class="method-card spec-card">
+          <div class="spec-card-bar"><span class="spec-card-id">Analysis</span><span class="pill pill-partial">partial</span></div>
+          <p>Top-down microarchitectural analysis where a PMU exists. Declines to fabricate numbers where it doesn't.</p>
+        </div>
+        <div class="method-card spec-card">
+          <div class="spec-card-bar"><span class="spec-card-id">User ownership</span><span class="pill pill-verified">verified</span></div>
+          <p>Explicit per-package licensing. Nothing generated here is public by default.</p>
+        </div>
+      </div>
+      <p class="section-footnote">Shown here: the compliance snapshot as reported by <span class="mono">LB-ML-001</span>. Full methodology text lives in <a href="methodology/">methodology/</a>.</p>
+    </section>
+
+    <!-- Registry -->
+    <section id="registry" class="section">
+      <div class="section-header">
+        <p class="eyebrow eyebrow-sm">05 — Registry</p>
+        <h2>Every benchmark, one place</h2>
+      </div>
+      <p class="section-lede">Filter by status or domain. New entries are added here the moment their ID is reserved in <span class="mono">LOWBIT_REGISTRY.md</span> — implemented or not.</p>
+
+      <div class="registry-filters" role="group" aria-label="Filter benchmarks">
+        <div class="filter-row" id="status-filters">
+          <button class="chip is-active" data-filter-type="status" data-filter-value="all">All</button>
+          <button class="chip" data-filter-type="status" data-filter-value="implemented">Implemented</button>
+          <button class="chip" data-filter-type="status" data-filter-value="planned">Planned</button>
+        </div>
+        <div class="filter-row" id="domain-filters">
+          <button class="chip is-active" data-filter-type="domain" data-filter-value="all">All domains</button>
+        </div>
+      </div>
+
+      <div class="registry-grid" id="registry-grid"></div>
+      <p class="registry-empty" id="registry-empty" hidden>No benchmarks match that filter yet.</p>
+
+      <noscript>
+        <p class="section-footnote">JavaScript is off — see the full table in <a href="LOWBIT_REGISTRY.md">LOWBIT_REGISTRY.md</a>.</p>
+      </noscript>
+    </section>
+
+    <!-- License -->
+    <section id="license" class="section">
+      <div class="section-header">
+        <p class="eyebrow eyebrow-sm">06 — License</p>
+        <h2>Two licenses, different jobs</h2>
+      </div>
+      <div class="license-grid">
+        <div class="license-card spec-card">
+          <div class="spec-card-bar"><span class="spec-card-id">Suite license</span><span class="pill pill-neutral">MIT</span></div>
+          <p>Covers this repository — the site, the specification text, and the registry itself. Free to read, fork, and reuse.</p>
+          <a href="LICENSE" class="license-link">Read LICENSE →</a>
+        </div>
+        <div class="license-card spec-card">
+          <div class="spec-card-bar"><span class="spec-card-id">Methodology license</span><span class="pill pill-neutral">Custom</span></div>
+          <p>Covers the determinism/portability/validation methodology text specifically — attribution required if you adapt it for your own suite.</p>
+          <a href="LICENSE-METHODOLOGY" class="license-link">Read LICENSE-METHODOLOGY →</a>
+        </div>
+      </div>
+      <p class="section-footnote">Individual benchmark packages may carry their own license instead — <span class="mono">LB-ML-001</span>, for example, ships under a user-exclusive ownership license. Check each package's own <span class="mono">LICENSE</span> before reuse.</p>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section section-last">
+      <div class="section-header">
+        <p class="eyebrow eyebrow-sm">07 — Author</p>
+        <h2>Om Pranab Mohanty</h2>
+      </div>
+      <p>Maintains LowBIt end to end — specification, methodology, and every benchmark package in the registry. New kernels are added as they're built, not batched for a release.</p>
+      <div class="about-links">
+        <a href="https://github.com/04pranab" class="about-link">GitHub</a>
+        <a href="https://linkedin.com/in/ompranab" class="about-link">LinkedIn</a>
+        <a href="mailto:om@lowbit.dev" class="about-link">Email</a>
+        <a href="CITATION.cff" class="about-link">Cite this suite</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-row">
+      <span>lowBit © 2026. Built by Om Pranab Mohanty.</span>
+      <div class="footer-links">
+        <a href="ROADMAP.md">Roadmap</a>
+        <a href="BENCHMARKS.md">Benchmarks</a>
+        <a href="SPECIFICATION.md">Specification</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

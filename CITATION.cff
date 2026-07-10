@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: >-
+  If you use the LowBIt specification, methodology, or any benchmark
+  package from the LowBIt registry, please cite this suite alongside the
+  specific benchmark package(s) used. See BENCHMARKS.md for per-package
+  citation requirements, which may be additive to this one.
+type: software
+title: "LowBIt: A Specification-First Benchmark Suite"
+authors:
+  - family-names: Mohanty
+    given-names: Om Pranab
+    alias: Ompa
+repository-code: "https://github.com/04pranab/lowBit"
+url: "https://github.com/04pranab/lowBit"
+abstract: >-
+  LowBIt is a specification-first suite of small, self-contained
+  benchmarks for systems, machine learning, and computer architecture
+  research. Each benchmark package is deterministic, portable across
+  target architectures, and independently validated against golden
+  reference outputs. This repository defines the specification and
+  methodology every package follows and indexes every benchmark in the
+  suite; it contains no benchmark source code itself.
+keywords:
+  - benchmarking
+  - reproducibility
+  - determinism
+  - risc-v
+  - computer-architecture
+  - machine-learning
+license: MIT
+version: 1.0.0
+date-released: "2026-07-10"
