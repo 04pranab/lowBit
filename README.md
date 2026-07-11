@@ -55,8 +55,6 @@ ownership.
 
 - [SPECIFICATION.md](SPECIFICATION.md) — the required package layout and
   schema every benchmark must satisfy to be admitted
-- [methodology/](methodology/) — the seven principles in full, with how
-  each is actually verified rather than just claimed
 
 ---
 
