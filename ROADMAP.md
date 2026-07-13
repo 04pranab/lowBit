@@ -10,7 +10,7 @@ real, fully-validated kernel before expanding domain coverage.
 - [x] Registry + site (this repository)
 - [x] `LB-ML-001` — Transformer Attention — first implemented package,
       FP32 + INT8, x86-64 + RISC-V
-- [ ] `LB-ML-002` — GEMM — isolate the dense-matmul cost center that
+- [x] `LB-ML-002` — GEMM — isolate the dense-matmul cost center that
       attention currently bundles together with softmax
 - [ ] `LB-ML-003` — Conv2D — first non-GEMM-dominant ML kernel
 - [ ] `LB-ML-004` — Softmax (standalone) — isolate the memory-bound,
