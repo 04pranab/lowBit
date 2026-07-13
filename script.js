@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       desc: "Multi-head scaled dot-product attention, FP32 + INT8, x86-64 & RISC-V.",
       repo: "https://github.com/04pranab/ml-transformer-attn_r",
     },
-    { id: "LB-ML-002", name: "GEMM", domain: "ML", status: "planned", desc: "Dense matrix multiply, reference kernel for the attention/GEMM family." },
+    { id: "LB-ML-002", name: "GEMM", domain: "ML", status: "implemented", desc: "Dense matrix multiply, reference kernel for the attention/GEMM family.", repo: "https://github.com/04pranab/ml-gemm_r", },
     { id: "LB-ML-003", name: "Conv2D", domain: "ML", status: "planned", desc: "Direct 2D convolution across representative CNN-style shapes." },
     { id: "LB-ML-004", name: "Softmax (standalone)", domain: "ML", status: "planned", desc: "Isolated normalization kernel — memory-bound, branchy reduction profile." },
     { id: "LB-ML-005", name: "LayerNorm", domain: "ML", status: "planned", desc: "Normalization layer, forward pass, fixed statistics computation order." },
