@@ -7,7 +7,7 @@ benchmark is added, its row goes here first.
 | ID | Kernel | Domain | Status | Package |
 |---|---|---|---|---|
 | `LB-ML-001` | Transformer Attention | Machine Learning | ✅ Implemented | [`ml-transformer-attn_r`](https://github.com/04pranab/ml-transformer-attn_r) |
-| `LB-ML-002` | GEMM | Machine Learning | ⏳ Planned | — |
+| `LB-ML-002` | GEMM | Machine Learning | ✅ Implemented | [`ml-gemm_r`](https://github.com/04pranab/ml-gemm_r) |
 | `LB-ML-003` | Conv2D | Machine Learning | ⏳ Planned | — |
 | `LB-ML-004` | Softmax (standalone) | Machine Learning | ⏳ Planned | — |
 | `LB-ML-005` | LayerNorm | Machine Learning | ⏳ Planned | — |
